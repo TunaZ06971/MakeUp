@@ -1,0 +1,10 @@
+canonical_face_model.obj
+
+来自 Google MediaPipe，Apache License 2.0。
+源文件：mediapipe/modules/face_geometry/data/canonical_face_model.obj
+https://github.com/google-ai-edge/mediapipe
+
+Copyright 2020 The MediaPipe Authors.
+
+按 Apache-2.0 授权使用，许可证全文见
+https://www.apache.org/licenses/LICENSE-2.0

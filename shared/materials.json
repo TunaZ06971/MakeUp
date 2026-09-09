@@ -1,0 +1,51 @@
+{
+  "matte": {
+    "gloss": 0.015,
+    "roughness": 0.95,
+    "detail": 0.72,
+    "coverage": 1,
+    "sparkle": 0
+  },
+  "satin": {
+    "gloss": 0.16,
+    "roughness": 0.58,
+    "detail": 0.88,
+    "coverage": 0.94,
+    "sparkle": 0
+  },
+  "shimmer": {
+    "gloss": 0.25,
+    "roughness": 0.48,
+    "detail": 0.95,
+    "coverage": 0.83,
+    "sparkle": 0.1
+  },
+  "glitter": {
+    "gloss": 0.2,
+    "roughness": 0.25,
+    "detail": 1,
+    "coverage": 0.7,
+    "sparkle": 0.55
+  },
+  "metallic": {
+    "gloss": 0.43,
+    "roughness": 0.38,
+    "detail": 0.85,
+    "coverage": 0.98,
+    "sparkle": 0.04
+  },
+  "sheer": {
+    "gloss": 0.12,
+    "roughness": 0.68,
+    "detail": 1,
+    "coverage": 0.34,
+    "sparkle": 0
+  },
+  "dewy": {
+    "gloss": 0.52,
+    "roughness": 0.18,
+    "detail": 1.08,
+    "coverage": 0.77,
+    "sparkle": 0
+  }
+}

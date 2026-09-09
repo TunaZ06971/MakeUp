@@ -1,0 +1,15 @@
+# Copy to project.local.yml, edit locally, then run:
+# xcodegen generate --spec apple/project.local.yml
+include: project.yml
+settings:
+  base:
+    DEVELOPMENT_TEAM: YOUR_TEAM_ID
+targets:
+  MakeUp:
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yourcompany.makeup
+  MakeUpTests:
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.yourcompany.makeup.tests

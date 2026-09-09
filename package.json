@@ -1,0 +1,19 @@
+{
+  "name": "makeup",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "emulators": "node scripts/emulators.mjs",
+    "seed": "tsx scripts/seed/seedProducts.ts",
+    "canonical": "node scripts/canonical/generateCanonicalFace.mjs",
+    "check:materials": "node scripts/materials/sync.mjs --check",
+    "test:rules": "node scripts/tests/firestore-rules.mjs",
+    "check:public": "python3 scripts/security/audit_public.py --staged"
+  },
+  "devDependencies": {
+    "firebase-admin": "^14.3.0",
+    "firebase-tools": "^15.30.0",
+    "tsx": "^4.20.6"
+  },
+  "license": "MIT"
+}

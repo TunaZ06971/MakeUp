@@ -1,0 +1,1145 @@
+{
+  "$comment": [
+    "第一版精选产品库，三端共用的唯一数据源，由 seedProducts.ts 导入 Firestore。",
+    "颜色值是依据公开色号资料的目测近似值，用于验证试妆管线；正式上线前应当用实拍色卡逐个校准。",
+    "sourceId 是幂等导入的主键，也直接作为 Firestore 文档 id，重复导入只会更新不会重复创建。",
+    "其余字段（source / searchKeywords / isActive / schemaVersion / 时间戳）由导入脚本补全。"
+  ],
+  "schemaVersion": 1,
+  "products": [
+    {
+      "sourceId": "mac-ruby-woo",
+      "brand": "MAC",
+      "brandZh": "魅可",
+      "shadeName": "Ruby Woo",
+      "shadeNameZh": "小辣椒",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#9E1B32"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "mac-velvet-teddy",
+      "brand": "MAC",
+      "brandZh": "魅可",
+      "shadeName": "Velvet Teddy",
+      "shadeNameZh": "奶茶色",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#B4796C"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "mac-chili",
+      "brand": "MAC",
+      "brandZh": "魅可",
+      "shadeName": "Chili",
+      "shadeNameZh": "枫叶色",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#9C4A38"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "mac-whirl",
+      "brand": "MAC",
+      "brandZh": "魅可",
+      "shadeName": "Whirl",
+      "shadeNameZh": "干枯玫瑰",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#A9705F"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "mac-marrakesh",
+      "brand": "MAC",
+      "brandZh": "魅可",
+      "shadeName": "Marrakesh",
+      "shadeNameZh": "浅豆沙",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#B07A6B"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "dior-rouge-999-matte",
+      "brand": "Dior",
+      "brandZh": "迪奥",
+      "shadeName": "Rouge Dior 999 Matte",
+      "shadeNameZh": "999 哑光",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#C0182B"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "dior-rouge-720",
+      "brand": "Dior",
+      "brandZh": "迪奥",
+      "shadeName": "Rouge Dior 720 Icone",
+      "shadeNameZh": "720",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#B85C63"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "dior-addict-628",
+      "brand": "Dior",
+      "brandZh": "迪奥",
+      "shadeName": "Addict Lip Glow 628",
+      "shadeNameZh": "变色润唇 628",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#C97F86"
+        }
+      ],
+      "finish": "sheer",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "ysl-rouge-pur-couture-1966",
+      "brand": "YSL",
+      "brandZh": "圣罗兰",
+      "shadeName": "Rouge Pur Couture N°1966",
+      "shadeNameZh": "圆管 1966",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#B4243A"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "ysl-tatouage-216",
+      "brand": "YSL",
+      "brandZh": "圣罗兰",
+      "shadeName": "Tatouage Couture 216",
+      "shadeNameZh": "黑管 216",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#A03A4A"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "chanel-rouge-allure-velvet-58",
+      "brand": "Chanel",
+      "brandZh": "香奈儿",
+      "shadeName": "Rouge Allure Velvet 58",
+      "shadeNameZh": "丝绒 58",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#B02234"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "chanel-rouge-coco-flash-116",
+      "brand": "Chanel",
+      "brandZh": "香奈儿",
+      "shadeName": "Rouge Coco Flash 116 Easy",
+      "shadeNameZh": "可可小姐 116",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#C56A6B"
+        }
+      ],
+      "finish": "dewy",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "ct-pillow-talk-matte",
+      "brand": "Charlotte Tilbury",
+      "brandZh": "夏洛特·蒂尔伯里",
+      "shadeName": "Matte Revolution Pillow Talk",
+      "shadeNameZh": "枕边细语",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#C1837F"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "nars-dolce-vita",
+      "brand": "NARS",
+      "brandZh": "纳斯",
+      "shadeName": "Dolce Vita",
+      "shadeNameZh": "甜蜜生活",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#A9615E"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "tom-ford-casablanca",
+      "brand": "Tom Ford",
+      "brandZh": "汤姆·福特",
+      "shadeName": "Lip Color Casablanca",
+      "shadeNameZh": "卡萨布兰卡",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#C08A80"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "armani-lip-maestro-405",
+      "brand": "Giorgio Armani",
+      "brandZh": "阿玛尼",
+      "shadeName": "Lip Maestro 405",
+      "shadeNameZh": "红管 405",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#A6414B"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "estee-lauder-420",
+      "brand": "Estée Lauder",
+      "brandZh": "雅诗兰黛",
+      "shadeName": "Pure Color Envy 420 Rebellious Rose",
+      "shadeNameZh": "420 玫瑰",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#BE5C6B"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "maybelline-superstay-65",
+      "brand": "Maybelline",
+      "brandZh": "美宝莲",
+      "shadeName": "SuperStay Matte Ink 65 Seductress",
+      "shadeNameZh": "唇釉 65",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#8E3B44"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "florasis-m416",
+      "brand": "Florasis",
+      "brandZh": "花西子",
+      "shadeName": "Carved Lipstick M416",
+      "shadeNameZh": "同心锁口红 M416 枫叶棕",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#9B4A3E"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "perfect-diary-m03",
+      "brand": "Perfect Diary",
+      "brandZh": "完美日记",
+      "shadeName": "Slim Lipstick M03",
+      "shadeNameZh": "小细跟 M03",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#A34B47"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "judydoll-lip-mud-14",
+      "brand": "Judydoll",
+      "brandZh": "橘朵",
+      "shadeName": "Lip Mud #14",
+      "shadeNameZh": "唇泥 14 号",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#B65B54"
+        }
+      ],
+      "finish": "sheer",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "3ce-909-smoked-rose",
+      "brand": "3CE",
+      "shadeName": "Mood Recipe 909 Smoked Rose",
+      "shadeNameZh": "909 烟熏玫瑰",
+      "category": "lipstick",
+      "colors": [
+        {
+          "hex": "#9E5A57"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "lips"
+      ]
+    },
+    {
+      "sourceId": "ud-naked-half-baked",
+      "brand": "Urban Decay",
+      "brandZh": "UD",
+      "shadeName": "Naked Half Baked",
+      "shadeNameZh": "裸妆盘 半熟金",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#C69749"
+        }
+      ],
+      "finish": "metallic",
+      "applicableRegions": [
+        "eyelid"
+      ]
+    },
+    {
+      "sourceId": "ud-naked3-buzz",
+      "brand": "Urban Decay",
+      "brandZh": "UD",
+      "shadeName": "Naked3 Buzz",
+      "shadeNameZh": "裸3 玫瑰金",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#C58E86"
+        }
+      ],
+      "finish": "shimmer",
+      "applicableRegions": [
+        "eyelid"
+      ]
+    },
+    {
+      "sourceId": "abh-mr-red-ochre",
+      "brand": "Anastasia Beverly Hills",
+      "brandZh": "ABH",
+      "shadeName": "Modern Renaissance Red Ochre",
+      "shadeNameZh": "玫瑰盘 赭红",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#8E4436"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "crease"
+      ]
+    },
+    {
+      "sourceId": "abh-mr-golden-ochre",
+      "brand": "Anastasia Beverly Hills",
+      "brandZh": "ABH",
+      "shadeName": "Modern Renaissance Golden Ochre",
+      "shadeNameZh": "玫瑰盘 金赭",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#B87A3D"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "crease"
+      ]
+    },
+    {
+      "sourceId": "dior-5couleurs-689",
+      "brand": "Dior",
+      "brandZh": "迪奥",
+      "shadeName": "5 Couleurs 689 Mitzah",
+      "shadeNameZh": "五色眼影 689",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#A9714F"
+        },
+        {
+          "hex": "#6E4432"
+        },
+        {
+          "hex": "#D8B08C"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "eyelid",
+        "crease"
+      ]
+    },
+    {
+      "sourceId": "chanel-4ombres-308",
+      "brand": "Chanel",
+      "brandZh": "香奈儿",
+      "shadeName": "Les 4 Ombres 308 Clair-Obscur",
+      "shadeNameZh": "四色眼影 308",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#B0847A"
+        },
+        {
+          "hex": "#7A5248"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "eyelid",
+        "crease"
+      ]
+    },
+    {
+      "sourceId": "ct-pillow-talk-palette-1",
+      "brand": "Charlotte Tilbury",
+      "brandZh": "夏洛特·蒂尔伯里",
+      "shadeName": "Pillow Talk Palette Prime",
+      "shadeNameZh": "枕边细语盘 打底",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#D9B49F"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "eyelid"
+      ]
+    },
+    {
+      "sourceId": "ct-pillow-talk-palette-2",
+      "brand": "Charlotte Tilbury",
+      "brandZh": "夏洛特·蒂尔伯里",
+      "shadeName": "Pillow Talk Palette Smoke",
+      "shadeNameZh": "枕边细语盘 加深",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#8B5B55"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "crease"
+      ]
+    },
+    {
+      "sourceId": "canmake-pse-14",
+      "brand": "Canmake",
+      "shadeName": "Perfect Stylist Eyes 14",
+      "shadeNameZh": "五色眼影 14",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#C79184"
+        }
+      ],
+      "finish": "shimmer",
+      "applicableRegions": [
+        "eyelid"
+      ]
+    },
+    {
+      "sourceId": "judydoll-9color-06",
+      "brand": "Judydoll",
+      "brandZh": "橘朵",
+      "shadeName": "Nine Color Palette #06",
+      "shadeNameZh": "九色眼影 06",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#BE7A62"
+        }
+      ],
+      "finish": "shimmer",
+      "applicableRegions": [
+        "eyelid"
+      ]
+    },
+    {
+      "sourceId": "perfect-diary-explorer-brown",
+      "brand": "Perfect Diary",
+      "brandZh": "完美日记",
+      "shadeName": "Explorer Palette Warm Brown",
+      "shadeNameZh": "探险家眼影盘 暖棕",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#9A6248"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "crease"
+      ]
+    },
+    {
+      "sourceId": "etude-play-color-peach",
+      "brand": "Etude House",
+      "brandZh": "爱丽小屋",
+      "shadeName": "Play Color Eyes Peach",
+      "shadeNameZh": "九色眼影 蜜桃",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#D79184"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "eyelid"
+      ]
+    },
+    {
+      "sourceId": "colourpop-la-la",
+      "brand": "ColourPop",
+      "shadeName": "Super Shock Shadow La La",
+      "shadeNameZh": "单色眼影 La La",
+      "category": "eyeshadow",
+      "colors": [
+        {
+          "hex": "#D3A28C"
+        }
+      ],
+      "finish": "glitter",
+      "applicableRegions": [
+        "eyelid"
+      ]
+    },
+    {
+      "sourceId": "nars-orgasm-blush",
+      "brand": "NARS",
+      "brandZh": "纳斯",
+      "shadeName": "Blush Orgasm",
+      "shadeNameZh": "高潮腮红",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#E59B8C"
+        }
+      ],
+      "finish": "shimmer",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "nars-deep-throat",
+      "brand": "NARS",
+      "brandZh": "纳斯",
+      "shadeName": "Blush Deep Throat",
+      "shadeNameZh": "蜜桃腮红",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#E6A79A"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "benefit-dandelion",
+      "brand": "Benefit",
+      "brandZh": "贝玲妃",
+      "shadeName": "Dandelion",
+      "shadeNameZh": "蒲公英腮红",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#EFC1C4"
+        }
+      ],
+      "finish": "sheer",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "rare-beauty-joy",
+      "brand": "Rare Beauty",
+      "shadeName": "Soft Pinch Liquid Blush Joy",
+      "shadeNameZh": "液体腮红 Joy",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#D97B7E"
+        }
+      ],
+      "finish": "dewy",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "milani-luminoso",
+      "brand": "Milani",
+      "shadeName": "Baked Blush Luminoso",
+      "shadeNameZh": "烘焙腮红 Luminoso",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#E09477"
+        }
+      ],
+      "finish": "shimmer",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "canmake-cream-cheek-cl01",
+      "brand": "Canmake",
+      "shadeName": "Cream Cheek CL01",
+      "shadeNameZh": "奶油腮红 CL01",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#E8A0A2"
+        }
+      ],
+      "finish": "dewy",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "judydoll-blush-08",
+      "brand": "Judydoll",
+      "brandZh": "橘朵",
+      "shadeName": "Single Blush #08",
+      "shadeNameZh": "单色腮红 08",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#E0918B"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "ct-cheek-to-chic-pillow-talk",
+      "brand": "Charlotte Tilbury",
+      "brandZh": "夏洛特·蒂尔伯里",
+      "shadeName": "Cheek to Chic Pillow Talk",
+      "shadeNameZh": "腮红 枕边细语",
+      "category": "blush",
+      "colors": [
+        {
+          "hex": "#D98A8E"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "cheeks"
+      ]
+    },
+    {
+      "sourceId": "estee-double-wear-1w1",
+      "brand": "Estée Lauder",
+      "brandZh": "雅诗兰黛",
+      "shadeName": "Double Wear 1W1 Bone",
+      "shadeNameZh": "DW 粉底液 1W1",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#EBC9A6"
+        }
+      ],
+      "finish": "matte",
+      "opacity": 0.85,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "estee-double-wear-2n1",
+      "brand": "Estée Lauder",
+      "brandZh": "雅诗兰黛",
+      "shadeName": "Double Wear 2N1 Desert Beige",
+      "shadeNameZh": "DW 粉底液 2N1",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#E0B694"
+        }
+      ],
+      "finish": "matte",
+      "opacity": 0.85,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "estee-double-wear-3w1",
+      "brand": "Estée Lauder",
+      "brandZh": "雅诗兰黛",
+      "shadeName": "Double Wear 3W1 Tawny",
+      "shadeNameZh": "DW 粉底液 3W1",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#CE9E75"
+        }
+      ],
+      "finish": "matte",
+      "opacity": 0.85,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "estee-double-wear-4n2",
+      "brand": "Estée Lauder",
+      "brandZh": "雅诗兰黛",
+      "shadeName": "Double Wear 4N2 Spiced Sand",
+      "shadeNameZh": "DW 粉底液 4N2",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#B98860"
+        }
+      ],
+      "finish": "matte",
+      "opacity": 0.85,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "nars-sheer-glow-punjab",
+      "brand": "NARS",
+      "brandZh": "纳斯",
+      "shadeName": "Sheer Glow Punjab",
+      "shadeNameZh": "亮采粉底液 Punjab",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#DDB18B"
+        }
+      ],
+      "finish": "dewy",
+      "opacity": 0.6,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "armani-luminous-silk-45",
+      "brand": "Giorgio Armani",
+      "brandZh": "阿玛尼",
+      "shadeName": "Luminous Silk 4.5",
+      "shadeNameZh": "蓝标粉底液 4.5",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#E4BE9B"
+        }
+      ],
+      "finish": "satin",
+      "opacity": 0.7,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "maybelline-fit-me-220",
+      "brand": "Maybelline",
+      "brandZh": "美宝莲",
+      "shadeName": "Fit Me 220 Natural Beige",
+      "shadeNameZh": "Fit Me 220",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#D9AE85"
+        }
+      ],
+      "finish": "matte",
+      "opacity": 0.7,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "fenty-pro-filtr-290",
+      "brand": "Fenty Beauty",
+      "shadeName": "Pro Filt'r 290",
+      "shadeNameZh": "粉底液 290",
+      "category": "foundation",
+      "colors": [
+        {
+          "hex": "#A9764F"
+        }
+      ],
+      "finish": "matte",
+      "opacity": 0.8,
+      "applicableRegions": [
+        "faceFull"
+      ]
+    },
+    {
+      "sourceId": "kate-super-sharp-bk1",
+      "brand": "Kate",
+      "brandZh": "凯朵",
+      "shadeName": "Super Sharp Liner BK-1",
+      "shadeNameZh": "极细眼线液 BK-1",
+      "category": "eyeliner",
+      "colors": [
+        {
+          "hex": "#141414"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyelidLine"
+      ]
+    },
+    {
+      "sourceId": "kpalette-1day-tattoo-brown",
+      "brand": "K-Palette",
+      "shadeName": "1DAY TATTOO Real Brown",
+      "shadeNameZh": "一日眼线液 棕",
+      "category": "eyeliner",
+      "colors": [
+        {
+          "hex": "#4A3229"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyelidLine"
+      ]
+    },
+    {
+      "sourceId": "stila-stay-all-day-black",
+      "brand": "Stila",
+      "shadeName": "Stay All Day Intense Black",
+      "shadeNameZh": "眼线液 浓黑",
+      "category": "eyeliner",
+      "colors": [
+        {
+          "hex": "#0F0F0F"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyelidLine"
+      ]
+    },
+    {
+      "sourceId": "maybelline-hyper-sharp-bk1",
+      "brand": "Maybelline",
+      "brandZh": "美宝莲",
+      "shadeName": "Hyper Sharp Liner BK-1",
+      "shadeNameZh": "超细眼线液 BK-1",
+      "category": "eyeliner",
+      "colors": [
+        {
+          "hex": "#121212"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyelidLine"
+      ]
+    },
+    {
+      "sourceId": "bobbi-brown-gel-espresso",
+      "brand": "Bobbi Brown",
+      "brandZh": "芭比波朗",
+      "shadeName": "Long-Wear Gel Espresso Ink",
+      "shadeNameZh": "凝胶眼线 咖啡",
+      "category": "eyeliner",
+      "colors": [
+        {
+          "hex": "#38271F"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "eyelidLine"
+      ]
+    },
+    {
+      "sourceId": "abh-brow-wiz-taupe",
+      "brand": "Anastasia Beverly Hills",
+      "brandZh": "ABH",
+      "shadeName": "Brow Wiz Taupe",
+      "shadeNameZh": "眉笔 Taupe",
+      "category": "brow",
+      "colors": [
+        {
+          "hex": "#8A7462"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyebrows"
+      ]
+    },
+    {
+      "sourceId": "abh-brow-wiz-medium-brown",
+      "brand": "Anastasia Beverly Hills",
+      "brandZh": "ABH",
+      "shadeName": "Brow Wiz Medium Brown",
+      "shadeNameZh": "眉笔 中棕",
+      "category": "brow",
+      "colors": [
+        {
+          "hex": "#6B5140"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyebrows"
+      ]
+    },
+    {
+      "sourceId": "kate-eyebrow-ex5",
+      "brand": "Kate",
+      "brandZh": "凯朵",
+      "shadeName": "Designing Eyebrow EX-5",
+      "shadeNameZh": "三次元眉粉 EX-5",
+      "category": "brow",
+      "colors": [
+        {
+          "hex": "#7A6350"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyebrows"
+      ]
+    },
+    {
+      "sourceId": "benefit-precisely-my-brow-3",
+      "brand": "Benefit",
+      "brandZh": "贝玲妃",
+      "shadeName": "Precisely My Brow #3",
+      "shadeNameZh": "细眉笔 3 号",
+      "category": "brow",
+      "colors": [
+        {
+          "hex": "#7C6249"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyebrows"
+      ]
+    },
+    {
+      "sourceId": "excel-pd05",
+      "brand": "Excel",
+      "shadeName": "Powder & Pencil PD05",
+      "shadeNameZh": "三合一眉笔 PD05",
+      "category": "brow",
+      "colors": [
+        {
+          "hex": "#8B7057"
+        }
+      ],
+      "finish": "matte",
+      "applicableRegions": [
+        "eyebrows"
+      ]
+    },
+    {
+      "sourceId": "becca-champagne-pop",
+      "brand": "Becca",
+      "shadeName": "Shimmering Skin Perfector Champagne Pop",
+      "shadeNameZh": "香槟金高光",
+      "category": "highlighter",
+      "colors": [
+        {
+          "hex": "#F2D3AE"
+        }
+      ],
+      "finish": "shimmer",
+      "applicableRegions": [
+        "cheekbones",
+        "noseBridge",
+        "cupidsBow"
+      ]
+    },
+    {
+      "sourceId": "fenty-killawatt-trophy-wife",
+      "brand": "Fenty Beauty",
+      "shadeName": "Killawatt Trophy Wife",
+      "shadeNameZh": "高光 Trophy Wife",
+      "category": "highlighter",
+      "colors": [
+        {
+          "hex": "#EBBB6A"
+        }
+      ],
+      "finish": "metallic",
+      "applicableRegions": [
+        "cheekbones",
+        "noseBridge"
+      ]
+    },
+    {
+      "sourceId": "nars-albatross",
+      "brand": "NARS",
+      "brandZh": "纳斯",
+      "shadeName": "Albatross",
+      "shadeNameZh": "信天翁高光",
+      "category": "highlighter",
+      "colors": [
+        {
+          "hex": "#F5DDB4"
+        }
+      ],
+      "finish": "shimmer",
+      "applicableRegions": [
+        "cheekbones",
+        "noseBridge"
+      ]
+    },
+    {
+      "sourceId": "canmake-glow-fleur-01",
+      "brand": "Canmake",
+      "shadeName": "Glow Fleur Highlighter #01",
+      "shadeNameZh": "花瓣高光 01",
+      "category": "highlighter",
+      "colors": [
+        {
+          "hex": "#F7E2CF"
+        }
+      ],
+      "finish": "satin",
+      "applicableRegions": [
+        "cheekbones",
+        "cupidsBow"
+      ]
+    },
+    {
+      "sourceId": "ct-beauty-light-wand-pinkgold",
+      "brand": "Charlotte Tilbury",
+      "brandZh": "夏洛特·蒂尔伯里",
+      "shadeName": "Hollywood Beauty Light Wand Pinkgold",
+      "shadeNameZh": "高光棒 粉金",
+      "category": "highlighter",
+      "colors": [
+        {
+          "hex": "#F0C6B0"
+        }
+      ],
+      "finish": "dewy",
+      "applicableRegions": [
+        "cheekbones",
+        "noseBridge"
+      ]
+    }
+  ]
+}

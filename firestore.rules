@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    match /users/{uid} {
+      allow read, write: if request.auth != null && request.auth.uid == uid;
+
+      match /{document=**} {
+        allow read, write: if request.auth != null && request.auth.uid == uid;
+      }
+    }
+
+    // 产品库对登录用户只读，只有种子脚本（Admin SDK，绕过规则）能写。
+    match /products/{productId} {
+      allow read: if request.auth != null;
+      allow write: if false;
+    }
+
+    match /looks/{lookId} {
+      allow read, delete: if request.auth != null
+        && request.auth.uid == resource.data.ownerUid;
+      allow update: if request.auth != null
+        && request.auth.uid == resource.data.ownerUid
+        && request.resource.data.ownerUid == resource.data.ownerUid;
+      allow create: if request.auth != null
+        && request.auth.uid == request.resource.data.ownerUid;
+    }
+  }
+}
