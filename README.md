@@ -1,35 +1,33 @@
 # MakeUp
 
-**本地人脸采集与跨平台虚拟试妆原型。** 让采集更自然，让妆容可以调整、比较和保存。
+**Local-first head capture and virtual makeup for Web, iPhone, and Mac.** Capture naturally, experiment with makeup, and save looks you can adjust and compare.
 
-Local-first head capture and virtual makeup for Web, iPhone and Mac.
+[Quick Start](#quick-start) · [Architecture](docs/ARCHITECTURE.md) · [Capture Guide](docs/CONTINUOUS_CAPTURE.md) · [Privacy & Public Data Policy](docs/PUBLIC_DATA_POLICY.md) · [Contributing](CONTRIBUTING.md)
 
-[快速开始](#快速开始) · [技术架构](docs/ARCHITECTURE.md) · [采集指南](docs/CONTINUOUS_CAPTURE.md) · [隐私与开源范围](docs/PUBLIC_DATA_POLICY.md) · [参与开发](CONTRIBUTING.md)
+> **Status: experimental prototype.** The web app can record video and generate and edit a coarse face model. High-fidelity reconstruction of a complete head is still a research goal. The current implementation does not accurately reproduce a person's full hairstyle, ears, or the back of their head, and a five-minute generation time has not been validated.
 
-> **项目状态：实验性原型。** 网页端能够采集视频、生成和编辑粗略脸部模型；高保真完整头部重建仍在研究中。当前没有准确恢复本人完整发型、耳朵和后脑，也没有经过验证的五分钟生成承诺。
+## Features
 
-## 可以做什么
+- **Natural head-turn capture:** record without signing in, automatically select candidate frames, review clips, and record additional footage. A full 90° turn is not required, and detection failures do not discard recorded video.
+- **Local data management:** photos, videos, landmarks, and scan models stay on your device or in your browser. Import and export are explicit actions; face data is not uploaded automatically.
+- **Virtual makeup:** choose products, adjust intensity and finish, paint manually, undo and redo changes, and save makeup recipes.
+- **3D face studio:** rotate and zoom the model, inspect textures, apply makeup to the existing face surface, and export GLB files.
+- **Experimental Apple clients:** SwiftUI apps for iPhone and Mac, with ARKit and raw TrueDepth capture of visible surfaces on supported physical iPhones.
+- **Bilingual interface:** Chinese and English in both the web and Apple clients.
 
-- **自然转头采集**：无需登录，连续录像、自动挑选候选帧、回看和补录；不要求转满 90°，检测失败不会清空已录视频。
-- **本地数据管理**：照片、录像、关键点与扫描模型保存在设备或浏览器；可以主动导入、导出，不自动上传人脸数据。
-- **虚拟试妆**：选择产品、调整浓度、切换质地；支持手动绘制、撤销、重做和妆容配方。
-- **3D 脸部工作台**：旋转、缩放、查看纹理，在现有脸部表面上试妆并导出 GLB。
-- **Apple 原生实验**：SwiftUI 客户端支持 iPhone/Mac；受支持的真实 iPhone 可使用 ARKit 和原始 TrueDepth 可见表面采集。
-- **中英双语**：Web 与 Apple 客户端均提供中文和英文界面。
-
-| 能力 | Web | iPhone | Mac 原生 |
+| Capability | Web | iPhone | Native Mac |
 |---|---|---|---|
-| 连续录像、自动选帧 | 支持 | 浏览器能力未完成真机验收 | 使用 Web 入口 |
-| 粗略脸部模型与试妆 | 支持 | 支持 | 支持导入与查看 |
-| 原始 TrueDepth | 不支持 | 实验功能，需要兼容真机 | 支持导入结果 |
-| 账号、产品、妆容配方 | Firebase | Firebase | Firebase |
-| 完整高保真人头 | 尚未完成 | 尚未完成 | 尚未完成 |
+| Continuous video and automatic frame selection | Supported | Browser workflow not yet validated on a physical device | Use the web app |
+| Coarse face models and virtual makeup | Supported | Supported | Import and viewing supported |
+| Raw TrueDepth capture | Not supported | Experimental; compatible physical device required | Import results |
+| Accounts, products, and makeup recipes | Firebase | Firebase | Firebase |
+| Complete, high-fidelity head reconstruction | Not yet implemented | Not yet implemented | Not yet implemented |
 
-## 快速开始
+## Quick Start
 
-### 只体验网页采集
+### Try Web Capture
 
-需要 **Node.js 22.12+** 和支持摄像头/MediaRecorder 的浏览器。Web 自动化在 Chrome 验证；其他浏览器仍需要设备测试。
+You need **Node.js 22.12+** and a browser with camera access and MediaRecorder support. Web automation has been tested in Chrome; other browsers still need device testing.
 
 ```sh
 git clone https://github.com/TunaZ06971/MakeUp.git
@@ -38,79 +36,79 @@ npm --prefix web ci
 npm --prefix web run dev -- --host 127.0.0.1
 ```
 
-打开 **[http://127.0.0.1:5173/capture](http://127.0.0.1:5173/capture)**。无需 Firebase 项目、API key 或 GPU。第一次启动会下载 MediaPipe 模型与运行时；之后人脸检测从同源本地文件加载。
+Open **[http://127.0.0.1:5173/capture](http://127.0.0.1:5173/capture)**. No Firebase project, API key, or GPU is required. Initial setup downloads the MediaPipe model and runtime; face detection then loads those files from the same local origin.
 
-点击“开始录像”，正面稍停，向舒服的一侧慢慢转头，再回正。每段最多约 25 秒，可回看、补录和导出。详见 [连续采集指南](docs/CONTINUOUS_CAPTURE.md)。
+Select **Start recording**, pause briefly facing forward, slowly turn toward whichever side feels comfortable, and return to the front. Each clip can be approximately 25 seconds long. You can review, record more, and export your capture. See the [Continuous Capture Guide](docs/CONTINUOUS_CAPTURE.md).
 
-### 使用产品库和妆容配方
+### Use the Product Catalog and Makeup Recipes
 
-另外需要 **Java 21+**。在项目根目录安装工具并启动本地 Firebase 模拟器：
+You also need **Java 21+**. Install the tools and start the local Firebase emulators from the repository root:
 
 ```sh
 npm ci
 npm run emulators
 ```
 
-保留该终端，另开终端初始化示例产品：
+Leave that terminal running, then open another terminal at the repository root to seed the sample products:
 
 ```sh
 npm run seed
 ```
 
-打开 [工作台](http://127.0.0.1:5173)，用虚构测试邮箱注册。默认项目为 `demo-makeup`，不会连接真实 Firebase。正常停止模拟器会将本地账号和配方保存到被 Git 忽略的 `.firebase/`。
+With the web development server still running, open the [studio](http://127.0.0.1:5173) and register with a fictional test email address. The default project is `demo-makeup`, which does not connect to a live Firebase project. A normal emulator shutdown saves local accounts and recipes to the Git-ignored `.firebase/` directory.
 
-示例色号和材质仅用于展示算法，没有经过品牌实测或色彩标定，与所列品牌不存在官方合作关系。
+Sample shades and materials demonstrate the rendering algorithms. They have not been measured against real products or color-calibrated, and the project has no official affiliation with the listed brands.
 
-### Apple 客户端
+### Run the Apple Clients
 
-需要 macOS、支持 Swift 6 的 Xcode 和 [XcodeGen](https://github.com/yonaskolb/XcodeGen)。最低部署目标为 iOS 17 / macOS 14；当前工程在 Xcode 26 环境验证过。
+You need macOS, Xcode with Swift 6 support, and [XcodeGen](https://github.com/yonaskolb/XcodeGen). Minimum deployment targets are iOS 17 and macOS 14. The project has been validated with Xcode 26.
 
 ```sh
 cp apple/project.local.example.yml apple/project.local.yml
-# 在 project.local.yml 填写自己的 Team 和唯一 Bundle ID
+# Set your own development team and unique bundle ID in project.local.yml.
 xcodegen generate --spec apple/project.local.yml
 open apple/MakeUp.xcodeproj
 ```
 
-选择 `MakeUp` scheme 和真实 iPhone，或 `My Mac`。Simulator 无法验证本项目的 ARKit 人脸采集流程。原生登录需要正确签名与钥匙串配置；不要通过关闭签名绕过问题。
+Select the `MakeUp` scheme and a physical iPhone, or `My Mac`. The Simulator cannot validate this project's ARKit face-capture workflow. Native sign-in requires correct code signing and Keychain configuration; disabling signing is not a workaround.
 
-iPhone 的 `127.0.0.1` 指向手机自己；可以先用“无需登录 · 本机 3D 采集”，无需配置云服务。完整步骤见 [Apple 采集指南](docs/3D_CAPTURE_GUIDE.md)。
+On an iPhone, `127.0.0.1` refers to the phone itself. You can start with local 3D capture without signing in or configuring cloud services. See the [Apple Capture Guide](docs/3D_CAPTURE_GUIDE.md) for the full setup.
 
-## 项目结构
+## Project Structure
 
 ```text
-web/                    React + TypeScript 网页客户端
+web/                    React + TypeScript web client
   src/features/
-    head-capture/       连续录像、选帧、本地素材包
-    face-scan/          旧粗脸采集、纹理融合、3D 查看
-    render-engine/      WebGL 妆容、遮罩和画笔
-    auth/ catalog/      账号与产品目录
-    studio/             工作台与配方
-apple/                  SwiftUI iPhone / Mac 客户端
-  Packages/MakeUpCore/   共享模型、Vision、Metal、采集核心
-shared/                 两端共同使用的材质预设
-scripts/                产品种子、资源生成、模型评估、安全检查
-docs/                   架构、采集、测试、隐私和重建边界
+    head-capture/       Continuous video, frame selection, local capture packages
+    face-scan/          Legacy coarse face capture, texture blending, 3D viewer
+    render-engine/      WebGL makeup, masks, and brushes
+    auth/ catalog/      Accounts and product catalog
+    studio/             Studio and makeup recipes
+apple/                  SwiftUI clients for iPhone and Mac
+  Packages/MakeUpCore/   Shared models, Vision, Metal, and capture core
+shared/                 Material presets shared by both clients
+scripts/                Product seeding, asset generation, model evaluation, security checks
+docs/                   Architecture, capture, testing, privacy, and reconstruction limits
 ```
 
-MediaPipe 负责定位与选帧，Three.js/WebGL 与 SceneKit/Metal 负责显示和妆容，Firebase 只处理账号、产品、配方。它们不能替代尚未接入的高精度头部重建后端。详见 [技术架构](docs/ARCHITECTURE.md)。
+MediaPipe handles face localization and frame selection. Three.js/WebGL and SceneKit/Metal handle rendering and makeup. Firebase handles accounts, products, and recipes. These components do not replace the high-fidelity head-reconstruction backend, which has not yet been integrated. See [Architecture](docs/ARCHITECTURE.md) for details.
 
-## 数据与隐私
+## Data and Privacy
 
-**本仓库发布程序，不发布真人素材。** 开源文件不包含人脸照片、录像、深度、扫描包、个人模型、模拟器账号导出或服务密钥。
+**This repository publishes software, not personal capture data.** Public files exclude face photos, recordings, depth data, scan packages, personal models, emulator account exports, and service credentials.
 
-| 数据 | 默认位置 / 行为 |
+| Data | Default storage or behavior |
 |---|---|
-| 新采集视频与候选帧 | 当前浏览器 IndexedDB，可导出 `.makeupcapture` |
-| 旧脸部扫描、照片、纹理 | 浏览器或 Apple 本地存储，可导出 `.makeupscan` / JSON / GLB |
-| 登录与配方 | 默认本机 Firebase 模拟器；配置真实项目后才使用相应服务 |
-| 密钥与 Apple 签名配置 | 个人本地文件，不进 Git |
+| New capture videos and candidate frames | IndexedDB in the current browser; exportable as `.makeupcapture` |
+| Legacy face scans, photos, and textures | Local browser or Apple storage; exportable as `.makeupscan`, JSON, or GLB |
+| Sign-in and makeup recipes | Local Firebase emulators by default; a live service is used only after configuring a real project |
+| Credentials and Apple signing configuration | Personal local files, excluded from Git |
 
-`.makeupcapture` 是**素材容器**，不是模型，不与旧 `.makeupscan` 自动互通。清除站点数据会删除浏览器中的素材；换浏览器或切换 `localhost` / `127.0.0.1` 也会使用不同的存储空间。
+A `.makeupcapture` file is a **source-media container**, not a 3D model. It is not automatically interchangeable with the older `.makeupscan` format. Clearing site data deletes captures stored in the browser. Different browsers, and `localhost` versus `127.0.0.1`, use separate storage.
 
-详细分类、忽略规则和公开前检查见 [开源数据边界](docs/PUBLIC_DATA_POLICY.md)；漏洞反馈见 [SECURITY.md](SECURITY.md)。
+See the [Public Data Policy](docs/PUBLIC_DATA_POLICY.md) for data categories, ignore rules, and pre-publication checks. To report a vulnerability, see [SECURITY.md](SECURITY.md).
 
-## 开发与验证
+## Development and Validation
 
 ```sh
 npm run check:materials
@@ -118,21 +116,22 @@ npm --prefix web run lint
 npm --prefix web run build
 python3 -m unittest discover -s scripts/security -p 'test_*.py'
 python3 -m unittest discover -s scripts/model-eval -p 'test_*.py'
-git add <已经审查的文件>
+# Stage only files you have reviewed, for example:
+git add README.md
 npm run check:public
 ```
 
-CI 检查公开文件、Git 文件历史、常见密钥、Web 构建及不依赖真人图片的回归。完整浏览器/渲染测试需要自行准备获准使用的私人夹具，**这些照片不会随仓库提供**。运行方式见 [测试指南](docs/TESTING.md)。
+CI checks public files, Git file history, common credential patterns, the web build, and regressions that do not require photos of real people. Full browser and rendering tests require private fixtures that you have permission to use; **these photos are not distributed with the repository**. See the [Testing Guide](docs/TESTING.md) for instructions.
 
-## 接下来要解决什么
+## Roadmap
 
-- 跑通专用头部重建模型，并实际验证本人相似度、可见耳部和发型。
-- 区分已观察区域与模型补全区域，验证从采集到浏览器呈现的总耗时。
-- 改善可编辑皮肤和妆容材质，并做真实产品校色。
-- 扩大不同设备、光线、姿态与肤色的真人验收。
+- Integrate a dedicated head-reconstruction model and validate identity likeness, visible ears, and hairstyle against real captures.
+- Distinguish observed regions from model-generated completion and measure total latency from capture to browser display.
+- Improve editable skin and makeup materials, and calibrate colors against real products.
+- Expand real-person validation across devices, lighting, poses, and skin tones.
 
-[重建边界与研究方向](docs/RECONSTRUCTION.md) 会区分“已实现”“实验中”和“尚未验证”。研究脚本默认 dry-run，不会自动购买算力或调用收费服务。
+[Reconstruction Limits and Research Directions](docs/RECONSTRUCTION.md) distinguishes implemented features, experiments, and unvalidated goals. Research scripts default to dry-run mode and do not automatically purchase compute or call paid services.
 
-## 许可证
+## License
 
-项目原创代码沿用仓库的 **[MIT License](LICENSE)**。第三方代码、规范脸拓扑、模型、解码器和 SDK 各自遵守原许可证；MIT 不会覆盖它们，也不授予真人肖像或品牌资产的使用权。详见 [THIRD_PARTY.md](THIRD_PARTY.md)。
+Original project code is available under the repository's **[MIT License](LICENSE)**. Third-party code, canonical face topology, models, decoders, and SDKs retain their respective licenses. The MIT license does not relicense those components or grant rights to use anyone's likeness or brand assets. See [THIRD_PARTY.md](THIRD_PARTY.md).
