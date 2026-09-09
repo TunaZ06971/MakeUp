@@ -3,7 +3,7 @@ from audit_public import inspect
 
 class PublicAuditTests(unittest.TestCase):
     def test_private_paths(self):
-        for path in ['.env.production', 'web/.env.local', '.firebase/accounts.json', '.artifacts/preview.svg', 'scan.makeupcapture', 'person.glb', 'face.jpg', 'apple/project.local.yml', 'HANDOVER.md']:
+        for path in ['.env.production', 'web/.env.local', '.firebase/accounts.json', '.artifacts/preview.svg', 'scan.makeupcapture', 'person.glb', 'face.jpg', 'Face.JPG', 'screen.PNG', 'portrait.webp', 'clip.MOV', 'apple/project.local.yml', 'HANDOVER.md']:
             self.assertIn('private-path', inspect(path, b'placeholder'), path)
 
     def test_examples_and_canonical_geometry_are_publishable(self):

@@ -7,7 +7,7 @@ import subprocess
 import sys
 
 PRIVATE_DIRS = {'.artifacts', '.firebase', '.git', 'node_modules', 'dist', 'test_faces', 'test-faces', 'captures', 'exports', 'private', 'model_zoo', 'checkpoints', '__pycache__', 'xcuserdata', 'DerivedData', '.build', 'test-results', 'playwright-report'}
-PRIVATE_SUFFIXES = {'.makeupcapture', '.makeupscan', '.glb', '.gltf', '.ply', '.usdz', '.jpg', '.jpeg', '.png', '.heic', '.webm', '.mp4', '.mov', '.safetensors', '.ckpt', '.pt', '.pth', '.pkl', '.zip', '.gz', '.pem', '.key', '.p12', '.p8', '.mobileprovision', '.provisionprofile', '.log', '.pyc'}
+PRIVATE_SUFFIXES = {'.makeupcapture', '.makeupscan', '.glb', '.gltf', '.ply', '.usdz', '.jpg', '.jpeg', '.png', '.webp', '.avif', '.gif', '.heic', '.webm', '.mp4', '.mov', '.safetensors', '.ckpt', '.pt', '.pth', '.pkl', '.zip', '.gz', '.pem', '.key', '.p12', '.p8', '.mobileprovision', '.provisionprofile', '.log', '.pyc'}
 PRIVATE_NAMES = {'GoogleService-Info.plist', 'google-services.json', 'credentials.json', 'project.local.yml', '.npmrc', '.pypirc', 'QA.md', '本轮执行与准备清单.md', '头部重建方案调研与改造建议.md'}
 PATTERNS = {
     'private-key': re.compile(rb'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----'),
